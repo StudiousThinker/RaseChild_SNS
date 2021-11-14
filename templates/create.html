@@ -5,7 +5,15 @@
       <p>方針:<input type="text" name="title"></p>
       <p>きっかけ:<input type="text" name="content"></p>
       <input type="hidden" name='contributor' value="{{ user.username}}">
+      <select name="priority">
+        <option value="" selected="">---------</option>
+        <option value="primary">high</option>
+        <option value="primary">normal</option>
+        <option value="primary">low</option>
+      </select>
       <input type="submit" value="投稿">
     </form>
 
 {% endblock content %}
+
+
