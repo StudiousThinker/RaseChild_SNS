@@ -1,9 +1,11 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from django.db import IntegrityError
+from django.db import IntegrityError, models
 from .models import BoadModel
 from django.contrib.auth.decorators import login_required
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -33,7 +35,7 @@ def loginfunc(request):
             login(request,user)
             return redirect('list')
         else:
-            return render(request, 'login.html', {'context':'このユーザーは登録されていません'})
+            return render(request, 'login.html', {'context':'ユーザー名もしくはパスワードが間違っています'})
 
     return render(request, 'login.html', {})
 
@@ -62,3 +64,9 @@ def goodfunc(request, pk):
     object.good = object.good + 1
     object.save()
     return redirect('list')
+
+class ContributeCreate(CreateView):
+    template_name = 'create.html'
+    model = BoadModel
+    fields = ('title','content','contributor','priority')
+    success_url = reverse_lazy('list')
