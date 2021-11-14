@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
 from django.db import IntegrityError
 from .models import BoadModel
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -35,6 +36,7 @@ def loginfunc(request):
 
     return render(request, 'login.html', {'context':'get method'})
 
+@login_required
 def listfunc(request):
 
     object_list = BoadModel.objects.all()
