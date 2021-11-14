@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
 from django.db import IntegrityError
+from .models import BoadModel
 
 # Create your views here.
 
@@ -36,4 +37,5 @@ def loginfunc(request):
 
 def listfunc(request):
 
-    return render(request, 'list.html', {})
+    object_list = BoadModel.objects.all()
+    return render(request, 'list.html', {'object_list':object_list})
