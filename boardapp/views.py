@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
 from django.db import IntegrityError
@@ -17,7 +17,7 @@ def signupfunc(request):
         except IntegrityError:
             return render(request, 'signup.html', {'error':'このユーザーは既に登録されています'})
 
-    return render(request, 'signup.html', {})
+    return render(request, 'signup.html', {'context':'get method'})
 
 def loginfunc(request):
     
