@@ -34,7 +34,7 @@ def loginfunc(request):
         else:
             return render(request, 'login.html', {'context':'このユーザーは登録されていません'})
 
-    return render(request, 'login.html', {'context':'get method'})
+    return render(request, 'login.html', {'context':''})
 
 @login_required
 def listfunc(request):
