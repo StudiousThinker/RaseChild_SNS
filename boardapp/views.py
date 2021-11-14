@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from .models import BoadModel
 from django.contrib.auth.decorators import login_required
@@ -21,6 +21,7 @@ def signupfunc(request):
 
     return render(request, 'signup.html', {'context':'get method'})
 
+
 def loginfunc(request):
     
     if request.method == "POST":
@@ -30,14 +31,21 @@ def loginfunc(request):
             
         if user is not None:
             login(request,user)
-            return render(request, 'login.html', {'context':'Loged in'})
+            return redirect('list')
         else:
             return render(request, 'login.html', {'context':'このユーザーは登録されていません'})
 
-    return render(request, 'login.html', {'context':''})
+    return render(request, 'login.html', {})
+
 
 @login_required
 def listfunc(request):
-
+    
     object_list = BoadModel.objects.all()
     return render(request, 'list.html', {'object_list':object_list})
+
+
+def logoutfunc(request):
+
+    logout(request)
+    return redirect('login')
