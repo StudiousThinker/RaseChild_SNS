@@ -14,10 +14,10 @@
 <div class='container'>
     {% for item in object_list %}
         <div class="alert alert-success" role="alert">
-            <h4>方針:<a href="{% url 'detail' item.pk %}">{{ item.title }}</h4></p>
+            <h4>方針:<a href="{% url 'detail' item.pk %}">{{ item.title }}</a></h4></p>
             <p>投稿者：{{ item.contributor }}</p>
-            <p>いいね数：{{ item.good }}</p>
-            <a class="btn btn-primary" role="button" href="{% url 'good' item.pk %}" aria-disabled="true">いいね！</a>
+            <p>{{ item.good }}件のいいね</p>
+            <a class="btn btn-primary" role="button" href="{% url 'good' item.pk %}" >いいね！</a>
         </div>
     {% endfor %} 
     <a href="{% url 'logout' %}" role="button">Logout</a>
