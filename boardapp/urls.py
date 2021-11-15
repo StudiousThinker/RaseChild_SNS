@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import signupfunc, loginfunc, listfunc, logoutfunc, detailfunc, goodfunc, ContributeCreate
+from .views import signupfunc, loginfunc, listfunc, logoutfunc, detailfunc, goodfunc, ContributeCreate, followfunc
 
 urlpatterns = [
     path('signup/', signupfunc, name='signup'),
@@ -10,4 +10,5 @@ urlpatterns = [
     path('good/<int:pk>', goodfunc, name='good'),
     path('create/', ContributeCreate.as_view(), name='create'),
     path('mylist/', listfunc, name='mylist'),
+    path('follow/', followfunc, name='follow'),
 ]
