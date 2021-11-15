@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<div class="alert alert-success" role="alert">
+<div class="alert alert-heading" role="alert">
     <h4 class="alert-heading">Detail page</h4>
+    <a class="btn btn-secondary" role="button" href="{%  url 'list' %}" >共有ページへ</a>
+    <a class="btn btn-secondary" role="button" href="{% url 'mylist' %}" >マイリストへ</a>
 </div>
 {% endblock header %}
 
