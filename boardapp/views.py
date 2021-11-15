@@ -67,8 +67,6 @@ class ContributeCreate(CreateView):
 
 def followfunc(request, pk):
     object = get_object_or_404(BoadModel, pk=pk)
-    object.follow = 1
-    object.contributor = request.user
-    dummy = BoadModel.objects.create(object)
+    dummy = BoadModel.objects.create(title=object.title,content=object.content,contributor=request.user.username,follow=1)
     dummy.save()
     return redirect('mylist')

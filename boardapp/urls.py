@@ -10,5 +10,5 @@ urlpatterns = [
     path('good/<int:pk>', goodfunc, name='good'),
     path('create/', ContributeCreate.as_view(), name='create'),
     path('mylist/', listfunc, name='mylist'),
-    path('follow/', followfunc, name='follow'),
+    path('follow/<int:pk>', followfunc, name='follow'),
 ]

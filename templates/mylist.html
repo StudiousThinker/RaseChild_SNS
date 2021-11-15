@@ -15,7 +15,11 @@
         {% if user.username == item.contributor %}
             <div class="alert alert-danger" role="alert">
                 <h4>方針:<a href="{% url 'detail' item.pk %}">{{ item.title }}</a></h4></p>
-                <p>{{ item.good }}件のいいね</p>
+                {% if item.follow != 1 %}
+                    <p>{{ item.good }}件のいいね</p>
+                {% else %}
+                    <h3>followed!</h3>
+                {% endif %}
             </div>
         {% endif %}
     {% endfor %} 
