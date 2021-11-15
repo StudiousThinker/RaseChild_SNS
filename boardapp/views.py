@@ -72,10 +72,3 @@ def followfunc(request, pk):
     dummy = BoadModel.objects.create(object)
     dummy.save()
     return redirect('mylist')
-
-title = models.CharField(max_length=100)
-    content = models.TextField()
-    contributor = models.CharField(max_length=20)
-    good = models.IntegerField(null=True, blank=True, default=1)
-    priority = models.CharField(max_length=10,choices=CHOICE)
-    follow
