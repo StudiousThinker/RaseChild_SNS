@@ -44,7 +44,12 @@ def loginfunc(request):
 def listfunc(request):
     
     object_list = BoadModel.objects.all()
-    return render(request, 'list.html', {'object_list':object_list})
+    if request.path_info == '/list/':
+        html = 'list.html'
+    else:
+        html = 'mylist.html'
+
+    return render(request, html, {'object_list':object_list})
 
 
 def logoutfunc(request):

@@ -9,4 +9,5 @@ urlpatterns = [
     path('detail/<int:pk>', detailfunc, name='detail'),
     path('good/<int:pk>', goodfunc, name='good'),
     path('create/', ContributeCreate.as_view(), name='create'),
+    path('mylist/', listfunc, name='mylist'),
 ]
