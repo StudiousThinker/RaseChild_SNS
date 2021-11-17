@@ -1,19 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container">
+    <br>
+    <br>
     <form method="POST">{% csrf_token %} 
-      <p>方針:<input type="text" name="title"></p>
-      <p>きっかけ:<input type="text" name="content"></p>
-      <input type="hidden" name='contributor' value="{{ user.username}}">
-      <select name="priority">
-        <option value="" selected="">---------</option>
-        <option value="primary">high</option>
-        <option value="primary">normal</option>
-        <option value="primary">low</option>
-      </select>
-      <input type="submit" value="投稿">
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">方針:</label>
+            <input type="text" name="title" class="form-control" >
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">きっかけ:</label>
+            <input type="text" name="content" class="form-control" >
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">重要度:</label>
+            <select name="priority" class="form-select">
+                <option value="" selected="">---------</option>
+                <option value="danger">high</option>
+                <option value="success">normal</option>
+                <option value="primary">low</option>
+            </select>
+        </div>
+    
+        <input type="hidden" name='contributor' value="{{ user.username }}">
+    
+        <div class="alert alert-heading text-center">
+            <input class="btn btn-secondary btn-lg" type="submit" value="投稿">
+            <a class="btn btn-secondary btn-lg" role="button" href="{% url 'list' %}" >戻る</a>
+        </div>
     </form>
-
+</div>
 {% endblock content %}
-
-

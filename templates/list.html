@@ -17,8 +17,13 @@
     {% for item in object_list %}
         {% if item.follow != 1 %}
             <div class="alert alert-success" role="alert">
-                <h4>方針:<a href="{% url 'detail' item.pk %}">{{ item.title }}</a></h4></p>
-                <p>投稿者：{{ item.contributor }}</p>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">方針:</label>
+                    <a href="{% url 'detail' item.pk %}">{{ item.title }}</a>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">投稿者:{{ item.contributor }}</label>
+                </div>
                 <p>{{ item.good }}件のいいね</p>
                 <a class="btn btn-primary" role="button" href="{% url 'good' item.pk %}" >いいね！</a>
             </div>

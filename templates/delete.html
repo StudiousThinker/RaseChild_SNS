@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action = "" method = 'POST'>{% csrf_token %}
-  <p>本当に削除しますか？</p>
-  <input type = "submit" value = '削除'>
-</form>
-
+<div class='container'>
+    <br>
+    <br>
+    <br>
+    <div class="alert alert-heading text-center">
+        <form action = "" method = 'POST'>{% csrf_token %}
+        <p>本当に削除しますか？</p>
+        <input class="btn btn-secondary btn-lg" type="submit" value="削除">
+        <a class="btn btn-secondary btn-lg" role="button" href="{% url 'mylist' %}" >戻る</a>
+        </form>
+    </div>
+</div>
 {% endblock content %}

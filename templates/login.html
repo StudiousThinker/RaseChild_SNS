@@ -8,11 +8,10 @@
 {% block content %}
 <body class="text-center">
     
-    {{ context }}
     <main class="form-signin">
       <form method="POST">{% csrf_token %}
         <h1 class="h3 mb-3 fw-normal">Log in</h1>
-    
+        {{ context }}
         <div class="form-floating">
           <input type="text" class="form-control" id="floatingInput" placeholder="username" name='username'>
           <label for="floatingInput">User name</label>
@@ -23,7 +22,7 @@
         </div>
     
         <button class="w-100 btn btn-lg btn-primary" type="submit">log in</button>
-        <!--<p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>-->
+       
       </form>
     </main>
         

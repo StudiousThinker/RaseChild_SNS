@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView,UpdateView,DeleteView
 from django.urls import reverse_lazy
 
-# Create your views here.
 
 def signupfunc(request):
     if request.method == "POST":
@@ -78,6 +77,6 @@ class ContributeUpdate(UpdateView):
 
 def followfunc(request, pk):
     object = get_object_or_404(BoadModel, pk=pk)
-    dummy = BoadModel.objects.create(title=object.title,content=object.content,contributor=request.user.username,follow=1)
+    dummy = BoadModel.objects.create(title=object.title,content=object.content,contributor=request.user.username,priority=object.priority,follow=1)
     dummy.save()
     return redirect('mylist')

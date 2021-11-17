@@ -11,14 +11,20 @@
 {% block content %}
 
 <div class='container'>
-        <div class="alert alert-success" role="alert">
-            <h4>方針:{{ object.title }}</h4>
-            <p>きっかけ：{{ object.content }}</p>
+        <div class="alert alert-warning" role="alert">
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">方針:{{ object.title }}</label>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">きっかけ：{{ object.content }}</label>
+            </div>
             {% if user.username != object.contributor %}
-                <p>投稿者：{{ object.contributor }}</p>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">投稿者：{{ object.contributor }}</label>
+                </div>
             {% endif %}
             {% if object.follow != 1 %}
-                <p>{{ object.good }}いいね</p>
+                <p>{{ object.good }}件のいいね</p>
             {% endif %}
             {% if user.username != object.contributor %}
                 <a class="btn btn-secondary" role="button" href="{% url 'follow' object.pk %}">マイリストに追加</a>
