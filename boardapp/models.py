@@ -3,7 +3,7 @@ from django.db.models.fields import CharField,TextField,IntegerField
 
 # Create your models here.
 
-CHOICE = (('primary','high'),('primary','normal'),('primary','low'))
+CHOICE = (('danger','high'),('success','normal'),('primary','low'))
 
 class BoadModel(models.Model):
     title = models.CharField(max_length=100)

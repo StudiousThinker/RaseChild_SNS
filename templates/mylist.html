@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<div class="alert alert-danger" role="alert">
+<div class="alert alert-heading" role="alert">
     <h2 class="alert-heading">My list</h2>
-    <a class="btn btn-secondary" role="button" href="{%  url 'create' %}" >投稿する</a>
-    <a class="btn btn-secondary" role="button" href="{% url 'list' %}" >共有ページへ</a>
+    <a class="btn btn-secondary" role="button" href="{% url 'list' %}" >共有リストへ</a>
 </div>
 {% endblock header %}
 
@@ -13,13 +12,18 @@
 <div class='container'>
     {% for item in object_list %}
         {% if user.username == item.contributor %}
-            <div class="alert alert-danger" role="alert">
-                <h4>方針:<a href="{% url 'detail' item.pk %}">{{ item.title }}</a></h4></p>
+            <div class="alert alert-{{ item.priority }}">
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">方針:</label>
+                    <a href="{% url 'detail' item.pk %}">{{ item.title }}</a>
+                </div>
                 {% if item.follow != 1 %}
                     <p>{{ item.good }}件のいいね</p>
                 {% else %}
-                    <h3>followed!</h3>
+                    <p>followed!</p>
                 {% endif %}
+                <a class="btn btn-secondary" role="button" href="{%  url 'update' item.pk %}" >編集</a>
+                <a class="btn btn-secondary" role="button" href="{% url 'delete' item.pk %}" >削除</a>
             </div>
         {% endif %}
     {% endfor %} 
