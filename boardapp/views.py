@@ -14,7 +14,7 @@ def signupfunc(request):
         password = request.POST['password']
         try:
             User.objects.create_user(username, '', password)
-            return render(request, 'signup.html', {})
+            return render(request, 'mylist.html', {})
         except IntegrityError:
             return render(request, 'signup.html',
                           {'error': 'このユーザーは既に登録されています'}
@@ -29,7 +29,7 @@ def loginfunc(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('list')
+            return redirect('mylist')
         else:
             return render(request, 'login.html',
                           {'context': 'ユーザー名もしくはパスワードが間違っています'}

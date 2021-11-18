@@ -14,12 +14,18 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='BoadModel',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                                           primary_key=True,
+                                           serialize=False,
+                                           verbose_name='ID')),
                 ('title', models.CharField(max_length=100)),
                 ('content', models.TextField()),
                 ('contributor', models.CharField(max_length=20)),
                 ('good', models.IntegerField()),
-                ('priority', models.CharField(choices=[('primary', 'high'), ('primary', 'normal'), ('primary', 'low')], max_length=10)),
+                ('priority', models.CharField(choices=[('primary', 'high'),
+                                                       ('primary', 'normal'),
+                                                       ('primary', 'low')],
+                                              max_length=10)),
             ],
         ),
     ]

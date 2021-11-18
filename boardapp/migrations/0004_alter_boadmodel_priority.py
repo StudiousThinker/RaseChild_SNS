@@ -13,6 +13,9 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='boadmodel',
             name='priority',
-            field=models.CharField(choices=[('danger', 'high'), ('success', 'normal'), ('primary', 'low')], max_length=10),
+            field=models.CharField(choices=[('danger', 'high'),
+                                            ('success', 'normal'),
+                                            ('primary', 'low')],
+                                   max_length=10),
         ),
     ]
