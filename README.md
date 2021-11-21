@@ -1,4 +1,4 @@
-## ターミナルからの仮想環境立ち上げとWebアプリ実行
+## Macターミナルからの仮想環境立ち上げとWebアプリ実行
 
 * source venv/bin/activate　で仮想環境立ち上げ
 * python manage.py runserver でローカルホスト立ち上げ
